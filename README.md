@@ -46,6 +46,34 @@ The API will have the following endpoints:
 - `POST /api/products`: Create a new product
 - `PUT /api/products/:id`: Update a product
 - `DELETE /api/products/:id`: Delete a product
+- `GET /api/products/stats/categories`: Get product statistics
+
+### Query Parameters
+
+- `category`: Filter by category
+- `page`: Page number for pagination
+- `limit`: Items per page
+- `search`: Search products by name
+
+## Authentication
+
+Include `x-api-key` header in all requests.
+
+## Example Request
+
+```bash
+curl -X POST \
+  http://localhost:3000/api/products \
+  -H 'x-api-key: your-secret-api-key' \
+  -H 'Content-Type: application/json' \
+  -d '{
+    "name": "Sample Product",
+    "description": "A sample product",
+    "price": 29.99,
+    "category": "electronics",
+    "inStock": true
+  }'
+```
 
 ## Submission
 
@@ -60,4 +88,4 @@ Your work will be automatically submitted when you push to your GitHub Classroom
 
 - [Express.js Documentation](https://expressjs.com/)
 - [RESTful API Design Best Practices](https://restfulapi.net/)
-- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status) 
+- [HTTP Status Codes](https://developer.mozilla.org/en-US/docs/Web/HTTP/Status)
